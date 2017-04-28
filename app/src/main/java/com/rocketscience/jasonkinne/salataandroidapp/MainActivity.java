@@ -4,7 +4,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -16,6 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +27,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
+    private HomeImagesAdapter mAdapter;
     private FirebaseDatabase mFirebaseDb;
     private DatabaseReference mHomeDbRef;
 
@@ -33,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mFirebaseDb = FirebaseDatabase.getInstance();
         mHomeDbRef = mFirebaseDb.getReference("home");
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.recylcler_view);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mAdapter = new HomeImagesAdapter(this);
+        mRecyclerView.setAdapter(mAdapter);
 
     }
 
@@ -49,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         public void onDataChange(DataSnapshot dataSnapshot) {
             if (dataSnapshot != null) {
                 mBannerList = fetchBannerList(dataSnapshot);
+                mAdapter.setImageDataList(mBannerList);
             }
         }
 
@@ -72,7 +82,12 @@ public class MainActivity extends AppCompatActivity {
     }
     private class HomeImagesAdapter extends RecyclerView.Adapter<ImageViewHolder> {
         private final Context mContext;
-        private List<Pair<String,String>> mImageDataList;
+
+        public void setImageDataList(List<Pair<String, String>> imageDataList) {
+            this.mImageDataList = imageDataList;
+        }
+
+        private List<Pair<String,String>> mImageDataList = new ArrayList<>();
 
         private HomeImagesAdapter(Context mContext) {
             this.mContext = mContext;
@@ -80,17 +95,21 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return null;
+            View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_homeimages, parent, false);
+            ImageViewHolder holder = new ImageViewHolder(itemView);
+            return holder;
         }
 
         @Override
         public void onBindViewHolder(ImageViewHolder holder, int position) {
+            Pair<String, String> data =mImageDataList.get(position);
+            holder.bind(mContext, data);
 
         }
 
         @Override
         public int getItemCount() {
-            return 0;
+            return mImageDataList.size();
         }
     }
 
@@ -106,8 +125,10 @@ public class MainActivity extends AppCompatActivity {
         public void bind(Context context, Pair<String,String> data) {
             titleText.setText(data.second);
             String imageUrl = data.first;
+            imageView.setTag(data.second);
             Picasso.with(context)
                     .load(imageUrl)
+                    .placeholder(R.drawable.placeholder)
                     .into(imageView);
         }
     }
