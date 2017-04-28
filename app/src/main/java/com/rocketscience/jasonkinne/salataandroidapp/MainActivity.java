@@ -38,6 +38,13 @@ public class MainActivity extends AppCompatActivity {
         mFirebaseDb = FirebaseDatabase.getInstance();
         mHomeDbRef = mFirebaseDb.getReference("home");
 
+        ImageView v = (ImageView) findViewById(R.id.fab);
+        v.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+            }
+        });
+
         mRecyclerView = (RecyclerView) findViewById(R.id.recylcler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new HomeImagesAdapter(this);
@@ -133,4 +140,5 @@ public class MainActivity extends AppCompatActivity {
                     .into(imageView);
         }
     }
+
 }
