@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "113342470692",
+    "firebase_url": "https://salataandroidapp.firebaseio.com",
+    "project_id": "salataandroidapp",
+    "storage_bucket": "salataandroidapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113342470692:android:386adada7af06039",
+        "android_client_info": {
+          "package_name": "com.rocketscience.jasonkinne.salataandroidapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113342470692-o8slmind13duino33r6vf8gl7eramqlg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rocketscience.jasonkinne.salataandroidapp",
+            "certificate_hash": "ac72e7adb3795507c18eea1b69422aad9d5f2772"
+          }
+        },
+        {
+          "client_id": "113342470692-6q4e0fp70d75jg8c1nade6r4m7kkqmpg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdatya1LyU1gTnRVteJXs0fIzhupn4bDk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113342470692-6q4e0fp70d75jg8c1nade6r4m7kkqmpg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
