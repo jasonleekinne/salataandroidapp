@@ -122,9 +122,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         String tag = (String) view.getTag();
-        if (tag.equals("Salata Catering Available!")) {
-            openwebview("https://www.salata.com/catering");
-        }else
         if (tag.equals("Simple. Fresh. Honest.")) {
             openwebview("https://www.salata.com/fresh-first");
         }else
@@ -134,11 +131,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (tag.equals("Various Locations in your Area")) {
             openwebview("https://www.salata.com/locations");
         }else
-        if (tag.equals("Amazing Appetizers.")) {
+        if (tag.equals("Amazing Appetizers")) {
             openwebview("https://www.salata.com/our-food");
         }else
-        if (tag.equals("Order your Own Salad Online!")) {
-            openwebview("https://order.salata.com/#!/order/account");
+        if (tag.equals("Customize a Crave-Worthy Salad")) {
+            openwebview("https://www.salata.com/about-us");
         }
     }
 
