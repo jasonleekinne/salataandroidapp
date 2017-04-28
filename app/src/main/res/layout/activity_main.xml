@@ -7,10 +7,10 @@
 
     <include layout="@layout/include_activity_main_content" />
 
-    <!--<com.bottlerocketapps.android.helper.HelperNavigationView-->
-        <!--android:id="@+id/helper_navigation_view"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_gravity="start" />-->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start" />
 
 </android.support.v4.widget.DrawerLayout>

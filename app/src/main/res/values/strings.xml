@@ -4,4 +4,9 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="image">image</string>
+    <string name="lets_start_online_order">Let\'s start your online order!</string>
+    <string name="open_drawer">Open</string>
+    <string name="close_drawer">Close</string>
+    <string name="menu_home">Salata</string>
+    <string name="menu_order">Order</string>
 </resources>

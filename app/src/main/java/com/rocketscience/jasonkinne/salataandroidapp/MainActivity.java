@@ -4,10 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.util.Pair;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private HomeImagesAdapter mAdapter;
     private FirebaseDatabase mFirebaseDb;
     private DatabaseReference mHomeDbRef;
+    private DrawerLayout mDrawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +45,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mFirebaseDb = FirebaseDatabase.getInstance();
         mHomeDbRef = mFirebaseDb.getReference("home");
 
+        // toolbar
+        Toolbar toolbar = setupToolbar(getString(R.string.menu_home));
+        setSupportActionBar(toolbar);
+        setupDrawerLayout(toolbar);
+
         ImageView v = (ImageView) findViewById(R.id.fab);
         v.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
+            public void onClick(View view) {
+                Snackbar.make(view, R.string.lets_start_online_order, Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
 
@@ -59,6 +70,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onResume();
         Query query = mHomeDbRef.child("banner_images");
         query.addValueEventListener(mValueEventListener);
+    }
+
+    private Toolbar setupToolbar(String title) {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp);
+        toolbar.setTitle(title);
+        return toolbar;
+    }
+
+    private void setupDrawerLayout(Toolbar toolbar) {
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.home_drawer_layout);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(
+                this,
+                mDrawerLayout,
+                toolbar,
+                R.string.open_drawer,
+                R.string.close_drawer
+        );
     }
 
     private List<Pair<String,String>> mBannerList;
