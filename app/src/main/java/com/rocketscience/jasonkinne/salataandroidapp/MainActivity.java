@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
         public void setImageDataList(List<Pair<String, String>> imageDataList) {
             this.mImageDataList = imageDataList;
+            notifyDataSetChanged();
         }
 
         private List<Pair<String,String>> mImageDataList = new ArrayList<>();
