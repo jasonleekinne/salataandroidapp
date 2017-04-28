@@ -1,6 +1,8 @@
 package com.rocketscience.jasonkinne.salataandroidapp;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
@@ -24,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private RecyclerView mRecyclerView;
     private HomeImagesAdapter mAdapter;
@@ -87,6 +89,35 @@ public class MainActivity extends AppCompatActivity {
         }
         return dataList;
     }
+
+    @Override
+    public void onClick(View view) {
+        String tag = (String) view.getTag();
+        if (tag.equals("Salata Catering Available!")) {
+            openwebview("https://www.salata.com/catering");
+        }else
+        if (tag.equals("Simple. Fresh. Honest.")) {
+            openwebview("https://www.salata.com/fresh-first");
+        }else
+        if (tag.equals("Monthly Seasonal Topping!")) {
+            openwebview("https://www.salata.com/");
+        }else
+        if (tag.equals("Various Locations in your Area")) {
+            openwebview("https://www.salata.com/locations");
+        }else
+        if (tag.equals("Amazing Appetizers.")) {
+            openwebview("https://www.salata.com/our-food");
+        }else
+        if (tag.equals("Order your Own Salad Online!")) {
+            openwebview("https://order.salata.com/#!/order/account");
+        }
+    }
+
+    private void openwebview(String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(intent);
+    }
+
     private class HomeImagesAdapter extends RecyclerView.Adapter<ImageViewHolder> {
         private final Context mContext;
 

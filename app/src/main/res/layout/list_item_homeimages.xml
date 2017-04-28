@@ -19,7 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
-            android:adjustViewBounds="true" />
+            android:adjustViewBounds="true"
+            android:onClick="onClick"/>
 
         <TextView
             android:id="@+id/title_text"
