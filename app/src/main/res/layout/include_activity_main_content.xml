@@ -29,13 +29,13 @@
 
         </android.support.v7.widget.RecyclerView>
 
-    <!--<android.support.design.widget.FloatingActionButton-->
-        <!--android:id="@+id/add_topic_button"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="bottom|end"-->
-        <!--android:layout_marginEnd="@dimen/xlarge"-->
-        <!--android:layout_marginBottom="@dimen/xlarge"-->
-        <!--android:src="@mipmap/ic_launcher"-->
-        <!--/>-->
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/add_topic_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/xlarge"
+        android:layout_marginBottom="@dimen/xlarge"
+        android:src="@drawable/fab"
+        />
 </android.support.design.widget.CoordinatorLayout>
