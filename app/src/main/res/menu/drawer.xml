@@ -14,7 +14,26 @@
             android:id="@+id/menu_order"
             android:title="@string/menu_order"
             />
-
+        <item
+            android:id="@+id/menu_order"
+            android:title="@string/myaccount"
+            />
+        <item
+            android:id="@+id/menu_order"
+            android:title="@string/menu"
+            />
+        <item
+            android:id="@+id/menu_order"
+            android:title="@string/locations"
+            />
+        <item
+            android:id="@+id/menu_order"
+            android:title="@string/menu_catering"
+            />
+        <item
+            android:id="@+id/menu_order"
+            android:title="@string/menu_ingredients"
+            />
     </group>
 
 </menu>

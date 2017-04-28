@@ -7,6 +7,11 @@
     <string name="lets_start_online_order">Let\'s start your online order!</string>
     <string name="open_drawer">Open</string>
     <string name="close_drawer">Close</string>
-    <string name="menu_home">Salata</string>
+    <string name="menu_home">Welcome to Salada</string>
     <string name="menu_order">Order</string>
+    <string name="myaccount">My Account</string>
+    <string name="menu">Our Menu</string>
+    <string name="locations">Find Location</string>
+    <string name="menu_catering">Catering</string>
+    <string name="menu_ingredients">Ingredients</string>
 </resources>
