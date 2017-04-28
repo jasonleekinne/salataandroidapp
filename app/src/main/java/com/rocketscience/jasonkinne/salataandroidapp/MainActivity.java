@@ -2,7 +2,6 @@ package com.rocketscience.jasonkinne.salataandroidapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.util.Pair;
@@ -144,7 +143,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void openwebview(String url) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        Intent intent = new Intent(this, WebViewActivity.class);
+        intent.putExtra(WebViewActivity.ARG_URL, url);
         startActivity(intent);
     }
 
